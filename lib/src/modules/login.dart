@@ -16,18 +16,12 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final AuthController controller = Get.put(AuthController());
 
- // bool _validateid = false, _validatepass = false, _passwordVisible = false;
-
   Map user = {"userid": "", "password": ""};
 
 
-  void initState() {
-    super.initState();
-    controller.passwordVisible.value = false;
-  }
-
   @override
   Widget build(BuildContext context) {
+    print("rebuild");
     return Scaffold(
       appBar: AppBar(
         title: Text("Login"),
@@ -75,6 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               Obx(() {
+                print("reobx");
                 return TextField(
                   controller: controller.valuepasswordid,
                   obscureText: !controller.passwordVisible.value,

@@ -39,8 +39,6 @@ class AuthController extends GetxController{
 
     var url = Uri.parse(apiBaseUrl + 'users/'+userid+"/"+pasword);
 
-    print(apiBaseUrl + 'users/'+userid+"/"+pasword);
-
     Map<String,String> headers = {
       'Content-type' : 'application/json',
       'Accept': 'application/json',
@@ -55,8 +53,9 @@ class AuthController extends GetxController{
         print(response.body);
 
         Map<String, dynamic> responseJson = json.decode(response.body);
-        message = responseJson['message'];
         print(responseJson);
+
+        message = responseJson['message'];
 
         if(message == "Got the user"){
           ad_user_id = responseJson['userdata'][0]['ad_user_id'];
